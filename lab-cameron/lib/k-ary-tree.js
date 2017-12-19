@@ -4,6 +4,10 @@ const Queue = require('./queue');
 const Stack = require('./stack');
 
 const KAryTree = function(value) {
+  if (typeof value !== 'number') {
+    throw new TypeError('value must be a number');
+  }
+  
   this.value = value;
   this._children = [];
 };

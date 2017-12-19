@@ -42,6 +42,10 @@ const BinarySearchTree = function() {
     }
   };
 
+  this.getRoot = () => {
+    return root;
+  };
+
   this.remove = node => {
     if (!(node instanceof Node)) {
       throw new TypeError('node should be an instance of Node');
