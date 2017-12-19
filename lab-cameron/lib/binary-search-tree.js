@@ -14,7 +14,7 @@ const BinarySearchTree = function() {
       throw new TypeError('value should be a number');
     }
 
-    let newNode = new Node(value);
+    const newNode = new Node(value);
 
     const insertValue = (node, newNode) => {
       if (node.value >= newNode.value) {
@@ -43,7 +43,7 @@ const BinarySearchTree = function() {
   };
 
   this.remove = node => {
-    if (!node instanceof Node) {
+    if (!(node instanceof Node)) {
       throw new TypeError('node should be an instance of Node');
     }
 
