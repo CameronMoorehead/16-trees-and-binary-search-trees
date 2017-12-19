@@ -46,12 +46,46 @@ const BinarySearchTree = function() {
     return root;
   };
 
-  this.remove = node => {
-    if (!(node instanceof Node)) {
-      throw new TypeError('node should be an instance of Node');
-    }
+  this.remove = value => {
+    root = removeNode(root, value);
 
-    // do something
+    const removeNode = (node, value) => {
+      if (root === null) {
+        return null;
+      }
+      if (value < node.value) {
+        node.left = removeNode(node.left, value);
+        return node;
+      } else if (value > node.value) {
+        node.right = removeNode(node.right, value);
+        return node;
+      } else {
+        if (node.left === null && node.right === null) {
+          node = null;
+          return node;
+        }
+
+        if (node.left === null) {
+          node = node.right;
+          return node;
+        } else if (node.right === null) {
+          node = node.left;
+          return node;
+        }
+
+        const temp = this.findMin(node.right);
+        node.value = temp.value;
+        node.right = removeNode(node.right, temp.value);
+        return node;
+      }
+    };
+  };
+
+  this.findMin = node => {
+    while (node && node.left !== null) {
+      node = node.left;
+    }
+    return node;
   };
 };
 
