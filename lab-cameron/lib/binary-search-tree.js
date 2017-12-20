@@ -8,6 +8,7 @@ const BinarySearchTree = function() {
   };
 
   let root = null;
+  let nodeCount = 0;
 
   this.insert = value => {
     if (typeof value !== 'number') {
@@ -20,6 +21,7 @@ const BinarySearchTree = function() {
       if (node.value >= newNode.value) {
         if (!node.left) {
           node.left = newNode;
+          nodeCount++;
           return;
         }
         insertValue(node.left, newNode);
@@ -27,6 +29,7 @@ const BinarySearchTree = function() {
       }
       if (!node.right) {
         node.right = newNode;
+        nodeCount++;
         return;
       }
       insertValue(node.right, newNode);
@@ -35,6 +38,7 @@ const BinarySearchTree = function() {
 
     if (!root) {
       root = newNode;
+      nodeCount++;
       return;
     } else {
       insertValue(root, newNode);
@@ -42,15 +46,28 @@ const BinarySearchTree = function() {
     }
   };
 
+  this.getNodeCount = () => {
+    return nodeCount;
+  };
+
   this.getRoot = () => {
     return root;
   };
 
-  this.remove = value => {
-    root = removeNode(root, value);
+  this.findMin = node => {
+    if (!root) {
+      return null;
+    }
 
+    while (node && node.left !== null) {
+      node = node.left;
+    }
+    return node;
+  };
+
+  this.remove = value => {
     const removeNode = (node, value) => {
-      if (root === null) {
+      if (node === null) {
         return null;
       }
       if (value < node.value) {
@@ -79,17 +96,8 @@ const BinarySearchTree = function() {
         return node;
       }
     };
-  };
 
-  this.findMin = node => {
-    if (!root) {
-      return null;
-    }
-    
-    while (node && node.left !== null) {
-      node = node.left;
-    }
-    return node;
+    return root = removeNode(root, value);
   };
 };
 

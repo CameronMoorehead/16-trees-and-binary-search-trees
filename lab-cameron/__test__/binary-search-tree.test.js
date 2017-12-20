@@ -72,4 +72,32 @@ describe('binary-search-tree.js', () => {
       expect(BSTtoTest.findMin(root)).toEqual(null);
     });
   });
+
+  describe('BinarySearchTree.remove(<value>)', () => {
+    test('remove(<value>) should return value of removed node and binary-tree should be balanced accordingly', () => {
+      const BSTtoTest = new BinarySearchTree();
+      BSTtoTest.insert(10);
+      BSTtoTest.insert(15);
+      BSTtoTest.insert(15);
+    });
+
+    test('remove(<value>) should return null if root is null', () => {
+      const BSTtoTest = new BinarySearchTree();
+
+      expect(BSTtoTest.remove(5)).toEqual(null);
+    });
+
+    test('remove(<value>) should return null if node with value is non-existent', () => {
+      const BSTtoTest = new BinarySearchTree();
+      BSTtoTest.insert(10);
+      BSTtoTest.insert(8);
+      BSTtoTest.insert(12);
+      BSTtoTest.insert(14);
+      BSTtoTest.insert(11);
+      BSTtoTest.insert(9);
+      BSTtoTest.insert(3);
+
+      expect(BSTtoTest.remove(10)).toBeTruthy();
+    });
+  });
 });
