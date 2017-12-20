@@ -86,3 +86,5 @@ KAryTree.prototype.toArray = function() {
 const logValue = item => {
   console.log(`visiting ${item.value}`);
 };
+
+module.exports = KAryTree;

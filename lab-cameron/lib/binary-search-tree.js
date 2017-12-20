@@ -79,14 +79,17 @@ const BinarySearchTree = function() {
       } else {
         if (node.left === null && node.right === null) {
           node = null;
+          nodeCount--;
           return node;
         }
 
         if (node.left === null) {
           node = node.right;
+          nodeCount--;
           return node;
         } else if (node.right === null) {
           node = node.left;
+          nodeCount--;
           return node;
         }
 

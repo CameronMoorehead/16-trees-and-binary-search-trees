@@ -77,8 +77,43 @@ describe('binary-search-tree.js', () => {
     test('remove(<value>) should return value of removed node and binary-tree should be balanced accordingly', () => {
       const BSTtoTest = new BinarySearchTree();
       BSTtoTest.insert(10);
-      BSTtoTest.insert(15);
-      BSTtoTest.insert(15);
+      BSTtoTest.insert(8);
+      BSTtoTest.insert(12);
+      BSTtoTest.insert(14);
+      BSTtoTest.insert(11);
+      BSTtoTest.insert(9);
+      BSTtoTest.insert(3);
+
+      // removing root node
+      expect(BSTtoTest.getNodeCount()).toEqual(7);
+      expect(BSTtoTest.remove(10)).toBeTruthy();
+      expect(BSTtoTest.getRoot().value).toEqual(11);
+      expect(BSTtoTest.getNodeCount()).toEqual(6);
+
+      // removing leaf node
+      expect(BSTtoTest.getNodeCount()).toEqual(6);
+      expect(BSTtoTest.getRoot().left.left).not.toEqual(null);
+      expect(BSTtoTest.remove(3)).toBeTruthy();
+      expect(BSTtoTest.getRoot().value).toEqual(11);
+      expect(BSTtoTest.getRoot().left.left).toEqual(null);
+      expect(BSTtoTest.getNodeCount()).toEqual(5);
+
+      // removing node with only one right child
+      expect(BSTtoTest.getNodeCount()).toEqual(5);
+      expect(BSTtoTest.getRoot().left.right).not.toEqual(null);
+      expect(BSTtoTest.remove(8)).toBeTruthy();
+      expect(BSTtoTest.getRoot().value).toEqual(11);
+      expect(BSTtoTest.getRoot().left.value).toEqual(9);
+      expect(BSTtoTest.getRoot().left.right).toEqual(null);
+      expect(BSTtoTest.getNodeCount()).toEqual(4);
+
+      // removing node with only one left child
+      expect(BSTtoTest.getNodeCount()).toEqual(4);
+      expect(BSTtoTest.getRoot().left).not.toEqual(null);
+      expect(BSTtoTest.remove(9)).toBeTruthy();
+      expect(BSTtoTest.getRoot().value).toEqual(11);
+      expect(BSTtoTest.getRoot().left).toEqual(null);
+      expect(BSTtoTest.getNodeCount()).toEqual(3);
     });
 
     test('remove(<value>) should return null if root is null', () => {
@@ -87,17 +122,13 @@ describe('binary-search-tree.js', () => {
       expect(BSTtoTest.remove(5)).toEqual(null);
     });
 
-    test('remove(<value>) should return null if node with value is non-existent', () => {
+    test('remove(<value>) should return unchanged tree if node with value is non-existent', () => {
       const BSTtoTest = new BinarySearchTree();
       BSTtoTest.insert(10);
-      BSTtoTest.insert(8);
-      BSTtoTest.insert(12);
-      BSTtoTest.insert(14);
-      BSTtoTest.insert(11);
-      BSTtoTest.insert(9);
-      BSTtoTest.insert(3);
+      BSTtoTest.insert(15);
+      BSTtoTest.insert(5);
 
-      expect(BSTtoTest.remove(10)).toBeTruthy();
+      expect(BSTtoTest.remove(100)).toEqual(BSTtoTest.getRoot());
     });
   });
 });
