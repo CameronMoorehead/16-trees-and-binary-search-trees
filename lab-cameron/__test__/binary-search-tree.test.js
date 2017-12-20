@@ -51,4 +51,25 @@ describe('binary-search-tree.js', () => {
       expect(BSTtoTest.getRoot()).toEqual(null);
     });
   });
+
+  describe('BinarySearchTree.findMin(<node>)', () => {
+    test('findMin() should return the left-most node of the sub-tree passed in as node', () => {
+      const BSTtoTest = new BinarySearchTree();
+      BSTtoTest.insert(10);
+      BSTtoTest.insert(15);
+      BSTtoTest.insert(5);
+
+      const root = BSTtoTest.getRoot();
+
+      expect(BSTtoTest.findMin(root).value).toEqual(5);
+    });
+
+    test('findMin() should return null if root is null', () => {
+      const BSTtoTest = new BinarySearchTree();
+
+      const root = BSTtoTest.getRoot();
+
+      expect(BSTtoTest.findMin(root)).toEqual(null);
+    });
+  });
 });

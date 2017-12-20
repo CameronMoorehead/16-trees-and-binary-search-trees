@@ -82,6 +82,10 @@ const BinarySearchTree = function() {
   };
 
   this.findMin = node => {
+    if (!root) {
+      return null;
+    }
+    
     while (node && node.left !== null) {
       node = node.left;
     }
