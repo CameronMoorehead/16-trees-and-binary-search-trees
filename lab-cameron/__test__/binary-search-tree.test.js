@@ -2,8 +2,6 @@
 
 const BinarySearchTree = require('../lib/binary-search-tree');
 
-
-
 describe('binary-search-tree.js', () => {
   describe('BinarySearchTree.insert(<value>)', () => {
     test('insert should insert node in ordered fashion into tree', () => {
@@ -34,6 +32,23 @@ describe('binary-search-tree.js', () => {
 
         BSTtoTest.insert('not a number');
       }).toThrow();
+    });
+  });
+
+  describe('BinarySearchTree.getRoot()', () => {
+    test('getRoot() should return the first node added to the binary tree', () => {
+      const BSTtoTest = new BinarySearchTree();
+      BSTtoTest.insert(10);
+      BSTtoTest.insert(15);
+      BSTtoTest.insert(5);
+
+      expect(BSTtoTest.getRoot().value).toEqual(10);
+    });
+
+    test('getRoot() should return null if tree is empty', () => {
+      const BSTtoTest = new BinarySearchTree();
+
+      expect(BSTtoTest.getRoot()).toEqual(null);
     });
   });
 });
