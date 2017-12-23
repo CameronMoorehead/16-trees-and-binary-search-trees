@@ -20,4 +20,8 @@ describe('k-ary-tree.js', () => {
       }).toThrow();
     });
   });
+
+  describe('KAryTree.levelOrderTraversal(<callback>)', () => {
+
+  });
 });

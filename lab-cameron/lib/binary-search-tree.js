@@ -66,6 +66,7 @@ const BinarySearchTree = function() {
   };
 
   this.remove = value => {
+    let result = null;
     const removeNode = (node, value) => {
       if (node === null) {
         return null;
@@ -78,16 +79,19 @@ const BinarySearchTree = function() {
         return node;
       } else {
         if (node.left === null && node.right === null) {
+          result = node.value;
           node = null;
           nodeCount--;
           return node;
         }
 
         if (node.left === null) {
+          result = node.value;
           node = node.right;
           nodeCount--;
           return node;
         } else if (node.right === null) {
+          result = node;
           node = node.left;
           nodeCount--;
           return node;
@@ -100,7 +104,13 @@ const BinarySearchTree = function() {
       }
     };
 
-    return root = removeNode(root, value);
+    root = removeNode(root, value);
+
+    // Return result as Node
+    if (result) {
+      result = new Node(result);
+    }
+    return result;
   };
 };
 

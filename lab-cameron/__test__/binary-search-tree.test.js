@@ -128,7 +128,39 @@ describe('binary-search-tree.js', () => {
       BSTtoTest.insert(15);
       BSTtoTest.insert(5);
 
-      expect(BSTtoTest.remove(100)).toEqual(BSTtoTest.getRoot());
+      expect(BSTtoTest.remove(100)).toEqual(null);
+    });
+
+    test('remove(<value>) should return the removed node if its a leaf node', () => {
+      const BSTtoTest = new BinarySearchTree();
+      BSTtoTest.insert(10);
+      BSTtoTest.insert(15);
+      BSTtoTest.insert(5);
+
+      const removedNode = BSTtoTest.remove(15);
+
+      expect(removedNode.value).toEqual(15);
+    });
+
+    test('remove(<value>) should return the removed node if its has only a left or right child', () => {
+      const BSTtoTest = new BinarySearchTree();
+      BSTtoTest.insert(10);
+      BSTtoTest.insert(15);
+
+      const removedNode = BSTtoTest.remove(10);
+
+      expect(removedNode.value).toEqual(10);
+    });
+
+    test('remove(<value>) should return the removed node if its has both a left and right child', () => {
+      const BSTtoTest = new BinarySearchTree();
+      BSTtoTest.insert(10);
+      BSTtoTest.insert(15);
+      BSTtoTest.insert(5);
+
+      const removedNode = BSTtoTest.remove(5);
+
+      expect(removedNode.value).toEqual(5);
     });
   });
 });
