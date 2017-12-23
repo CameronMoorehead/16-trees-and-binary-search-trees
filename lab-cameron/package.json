@@ -1,0 +1,31 @@
+{
+  "name": "lab-cameron",
+  "version": "1.0.0",
+  "description": "Treees",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest -i --coverage || exit 0",
+    "lint": "eslint *.js */**.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CameronMoorehead/16-trees-and-binary-search-trees.git"
+  },
+  "keywords": [
+    "BST",
+    "K-ary",
+    "N-ary"
+  ],
+  "author": "Cameron Moorehead",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/CameronMoorehead/16-trees-and-binary-search-trees/issues"
+  },
+  "homepage": "https://github.com/CameronMoorehead/16-trees-and-binary-search-trees#readme",
+  "devDependencies": {
+    "jest": "^22.0.1"
+  }
+}
