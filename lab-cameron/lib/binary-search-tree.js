@@ -97,9 +97,11 @@ const BinarySearchTree = function() {
           return node;
         }
 
+        let tempResult = node.value;
         const temp = this.findMin(node.right);
         node.value = temp.value;
         node.right = removeNode(node.right, temp.value);
+        result = tempResult;
         return node;
       }
     };
