@@ -91,7 +91,7 @@ const BinarySearchTree = function() {
           nodeCount--;
           return node;
         } else if (node.right === null) {
-          result = node;
+          result = node.value;
           node = node.left;
           nodeCount--;
           return node;
