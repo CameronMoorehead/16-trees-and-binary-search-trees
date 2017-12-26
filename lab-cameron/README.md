@@ -1,11 +1,6 @@
 # BST's and K-Ary Trees
 
-Implementation of BST and K-Ary:
-        _______                   
-       /_  __/_______  ___  _____
-        / / / ___/ _ \/ _ \/ ___/
-       / / / /  /  __/  __(__  )
-      /_/ /_/   \___/\___/____/  
+Implementation of BST and K-Ary trees.
 
 # Tech Used
 
