@@ -1,6 +1,6 @@
 # BST's and K-Ary Trees
 
-Implementation of BST and K-Ary trees
+Implementation of BST and K-Ary trees.
 
 # Tech Used
 
