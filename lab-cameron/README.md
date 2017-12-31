@@ -119,6 +119,25 @@ Time (worst): O(h) where h is equal to the height of the tree
 
 Time (avg/best): O(log n) where n is equal to the # of nodes in the tree
 
+```
+const bst = new BinarySearchTree();
+bst.insert(10);
+bst.insert(8);
+bst.insert(12);
+bst.insert(14);
+bst.insert(11);
+bst.insert(9);
+bst.insert(3);
+
+/* Creates a BST that looks like:
+    10
+   /  \
+  8    12
+ / \   / \
+3   9 11  14
+*/
+```
+
 - remove(<value>)
 
 Space: O(1) constant
@@ -127,17 +146,51 @@ Time (worst): O(h) where h is equal to the height of the tree
 
 Time (avg/best): O(log n) where n is equal to the # of nodes in the tree
 
+```
+// Assuming the BST above:
+
+bst.remove(14);
+
+/* removes a node from the BST such that it now looks like:
+    10
+   /  \
+  8    12
+ / \   /
+3   9 11  
+*/
+```
+
 - getMin()
 
 Space: O(1) constant
 
 Time: O(h) where h is equal to the height of the tree
 
+```
+// Assuming the BST above:
+
+bst.getMin();
+
+// returns 3
+```
+
 - getNodeCount() & getRoot()
 
 Space: O(1) constant
 
 Time: O(1) constant
+
+```
+// Assuming the BST above:
+
+bst.getNodeCount();
+
+// returns 6
+
+bst.getRoot();
+
+// returns { value: 10, left: <node@8>, right: <node@12>}
+```
 
 # Installation
 
