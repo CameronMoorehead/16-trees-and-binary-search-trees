@@ -34,7 +34,7 @@ describe('k-ary-tree.js', () => {
       expect(KAryTreeToTest.find(4).value).toEqual(4);
     });
 
-    test('KAryTree.fin(<value>) should respond with null if no such value exists', () => {
+    test('KAryTree.find(<value>) should respond with null if no such value exists', () => {
       const KAryTreeToTest = new KAryTree(1);
       KAryTreeToTest.appendChild(new KAryTree(2));
       KAryTreeToTest.appendChild(new KAryTree(3));
