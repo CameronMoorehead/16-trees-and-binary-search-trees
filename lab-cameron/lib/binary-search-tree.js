@@ -67,6 +67,7 @@ const BinarySearchTree = function() {
 
   this.remove = value => {
     let result = null;
+
     const removeNode = (node, value) => {
       if (node === null) {
         return null;
@@ -78,6 +79,7 @@ const BinarySearchTree = function() {
         node.right = removeNode(node.right, value);
         return node;
       } else {
+        // leaf node
         if (node.left === null && node.right === null) {
           result = node.value;
           node = null;
@@ -85,6 +87,7 @@ const BinarySearchTree = function() {
           return node;
         }
 
+        // one child
         if (node.left === null) {
           result = node.value;
           node = node.right;
@@ -97,6 +100,7 @@ const BinarySearchTree = function() {
           return node;
         }
 
+        // two children
         let tempResult = node.value;
         const temp = this.findMin(node.right);
         node.value = temp.value;

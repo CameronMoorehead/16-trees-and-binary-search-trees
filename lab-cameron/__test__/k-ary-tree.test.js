@@ -21,14 +21,6 @@ describe('k-ary-tree.js', () => {
     });
   });
 
-  // describe('KAryTree.levelOrderTraversal(<callback>)', () => {
-  //
-  // });
-
-  // describe('KAryTree.depthFirstTraversal(<callback>)', () => {
-  //
-  // });
-
   describe('KAryTree.find(<value>)', () => {
     test('KAryTree.find(<value>) should return the found Node in the K-ary tree', () => {
       const KAryTreeToTest = new KAryTree(1);
